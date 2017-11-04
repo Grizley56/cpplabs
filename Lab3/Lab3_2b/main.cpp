@@ -2,7 +2,8 @@
 #include <ctime>
 #include <iostream>
 #include "Plane.h"
-
+#include "PassengersPlane.h"
+#include "CargoPlane.h"
 
 const short PLANES_COUNT = 1000;
 
@@ -10,12 +11,13 @@ Plane* initializePlane(const char* model);
 
 int main()
 {
-	Plane* boing_747 = initializePlane("Boing 747");
-	Plane* A_380 = initializePlane("A380");
-	Plane* Ty_154 = initializePlane("Ty-154");
+	//Plane* boing_747 = initializePlane("Boing 747");
+	//Plane* A_380 = initializePlane("A380");
+	//Plane* Ty_154 = initializePlane("Ty-154");
 
-	Plane::ShowFullStatistic();
-
+	CargoPlane cp("cargo#1", 2010, 10000, 20000);
+	cp.Fly();
+	std::cout << cp.ToString();
 	return 0;
 }
 
@@ -39,7 +41,7 @@ Plane* initializePlane(const char* model)
 		int passCount = passCountUid(gen);
 		int year = yearUid(gen);
 		
-		planes[i] = new Plane(model, year, passCount, maxPassCount);
+		//planes[i] = new Plane(model, year, passCount, maxPassCount);
 
 		//for (size_t j = 0; j < airlanesCount; ++j)
 		//	planes[i]->AddAirlane(airlanesIdUid(gen));

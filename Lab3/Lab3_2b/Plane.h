@@ -12,24 +12,21 @@ class Plane
 {
 	public:
 		Plane();
-		Plane(std::string, int, int, int);
-		~Plane();
+		Plane(std::string, int);
+		virtual ~Plane();
 
 
 	private:
 		std::string model;
 		int year;
+		void Initialize() const;
+
+	protected:
 		mutable int* airlines;
-		mutable int passengersCount;
-		int maxPassengersCount;
 		mutable bool canFly;
 		mutable int flyCount;
-
-	private:
-		void Initialize() const;
-		mutable std::string* stringValue;
-		static PlaneStatistic* planeStatistic;
 		static std::mt19937 random;
+		mutable std::string* stringValue;
 
 	public:
 		const int MAX_AIRLINES = 10;
@@ -44,28 +41,23 @@ class Plane
 		bool AddAirlane(int) const;
 		int* GetAirlines() const;
 		void ClearAirlines() const;
-		int GetPassengersCount() const;
-		void SetPassengersCount(int) const;
-		int GetMaxPassengersCount() const;
-		void SetMaxPassengersCount(int);
-		const char* ToString() const;
-		double FillingRate() const;
+
+		virtual const char* ToString() const = 0;
+		virtual double FillingRate() const = 0;
+		virtual bool Fly() const = 0;
+
 
 		void Serialize() const;
 		void DeSerialize();
-		void Serialize(const char* path) const;
-		void DeSerialize(const char* path);
-
-		bool Fly() const;
+		virtual void Serialize(const char* path) const;
+		virtual void DeSerialize(const char* path);
 
 		static int Compare(const void* a, const void* b);
-		static void ShowFullStatistic();
 
 		bool operator>(Plane& val);
 		bool operator<(Plane& val);
 		bool operator==(Plane& val);
 		bool operator<=(Plane& val);
 		bool operator>=(Plane& val);
-
 };
 

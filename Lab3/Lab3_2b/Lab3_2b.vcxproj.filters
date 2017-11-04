@@ -15,33 +15,48 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AccidentInfo.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="Plane.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="PlaneStatistic.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="PlaneInfo.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="AccidentInfo.cpp">
+    <ClCompile Include="PlaneStatistic.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="PassengersPlane.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="CargoPlane.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Plane.h">
+    <ClInclude Include="AccidentInfo.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="PlaneStatistic.h">
+    <ClInclude Include="Plane.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="PlaneInfo.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="AccidentInfo.h">
+    <ClInclude Include="PlaneStatistic.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="PassengersPlane.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="CargoPlane.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="ILoadable.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

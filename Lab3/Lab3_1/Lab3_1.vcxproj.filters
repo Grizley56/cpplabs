@@ -18,30 +18,36 @@
     <ClCompile Include="main.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="Plane.cpp">
+    <ClCompile Include="ExpressionEvaluator.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="PlaneStatistic.cpp">
+    <ClCompile Include="Summator.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="PlaneInfo.cpp">
+    <ClCompile Include="Subtractor.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="AccidentInfo.cpp">
+    <ClCompile Include="CustomExpression.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Plane.h">
+    <ClInclude Include="ILoggable.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="PlaneStatistic.h">
+    <ClInclude Include="ExpressionEvaluator.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="PlaneInfo.h">
+    <ClInclude Include="Summator.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="AccidentInfo.h">
+    <ClInclude Include="Subtractor.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="IShuffle.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomExpression.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

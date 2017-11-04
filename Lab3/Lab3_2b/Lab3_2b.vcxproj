@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B913D0CD-69C1-44D0-8F8E-DFF7F16E899F}</ProjectGuid>
+    <ProjectGuid>{084FD755-6150-4E0B-85BF-AE2FE0DC30C7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Lab2_3</RootNamespace>
+    <RootNamespace>Lab3_2b</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Lab2_3</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,13 +143,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AccidentInfo.cpp" />
+    <ClCompile Include="CargoPlane.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PassengersPlane.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PlaneInfo.cpp" />
     <ClCompile Include="PlaneStatistic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccidentInfo.h" />
+    <ClInclude Include="CargoPlane.h" />
+    <ClInclude Include="ILoadable.h" />
+    <ClInclude Include="PassengersPlane.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="PlaneInfo.h" />
     <ClInclude Include="PlaneStatistic.h" />

@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B913D0CD-69C1-44D0-8F8E-DFF7F16E899F}</ProjectGuid>
+    <ProjectGuid>{E24B57B4-5F51-465E-BA84-D748FEDFDB4A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Lab2_3</RootNamespace>
+    <RootNamespace>Lab3_1</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Lab2_3</ProjectName>
+    <ProjectName>Lab3_1</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -143,17 +143,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AccidentInfo.cpp" />
+    <ClCompile Include="CustomExpression.cpp" />
+    <ClCompile Include="ExpressionEvaluator.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Plane.cpp" />
-    <ClCompile Include="PlaneInfo.cpp" />
-    <ClCompile Include="PlaneStatistic.cpp" />
+    <ClCompile Include="Subtractor.cpp" />
+    <ClCompile Include="Summator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AccidentInfo.h" />
-    <ClInclude Include="Plane.h" />
-    <ClInclude Include="PlaneInfo.h" />
-    <ClInclude Include="PlaneStatistic.h" />
+    <ClInclude Include="CustomExpression.h" />
+    <ClInclude Include="ExpressionEvaluator.h" />
+    <ClInclude Include="ILoggable.h" />
+    <ClInclude Include="IShuffle.h" />
+    <ClInclude Include="Subtractor.h" />
+    <ClInclude Include="Summator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

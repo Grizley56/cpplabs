@@ -2,23 +2,22 @@
 #include "Plane.h"
 
 
-Plane::Plane(): flyCount(0), canFly(true)
+Plane::Plane(): flyCount(0), canFly(true), model("none"), year(0)
 {
 	airlines = new int[MAX_AIRLINES];
 	Initialize();
 }
 
-Plane::Plane(std::string model, int year, int passCount, int maxpassCount) 	
-	:model(model), year(year), passengersCount(passCount), maxPassengersCount(maxpassCount),
-	flyCount(0), canFly(true)
+Plane::Plane(std::string model, int year) 	
+	:model(model), year(year), flyCount(0), canFly(true)
 {
 	airlines = new int[MAX_AIRLINES];
 	Initialize();
-	planeStatistic->addToStatistic(*this);
 }
 
 Plane::~Plane()
 {
+	delete [] airlines;
 }
 
 void Plane::Initialize() const
@@ -28,25 +27,6 @@ void Plane::Initialize() const
 		airlines[i] = -1;
 }
 
-int Plane::GetPassengersCount() const
-{
-	return passengersCount;
-}
-
-void Plane::SetPassengersCount(int value) const
-{
-	passengersCount = value;
-}
-
-int Plane::GetMaxPassengersCount() const
-{
-	return maxPassengersCount;
-}
-
-void Plane::SetMaxPassengersCount(int value)
-{
-	maxPassengersCount = value;
-}
 
 std::string Plane::GetModel() const
 {
@@ -132,25 +112,9 @@ const char* Plane::ToString() const
 	else
 		*stringValue += "Airlines are not supported\n";
 
-	*stringValue += "Passengers " + std::to_string(passengersCount)
-			+ " out of " + std::to_string(maxPassengersCount) + '\n';
-
-	double fillingRate = this->FillingRate();
-
-	if (maxPassengersCount)
-		*stringValue += "Filling rate: " +  std::to_string(fillingRate)
-			.erase(std::to_string(fillingRate).size() - 4) + "%";
-	else
-		*stringValue += "Filling rate unaviable";
-
 	*stringValue += "\n------------------------------------------";
 
 	return stringValue->c_str();
-}
-
-double Plane::FillingRate() const
-{
-	return ((double)passengersCount / maxPassengersCount) * 100;
 }
 
 void Plane::Serialize() const
@@ -176,8 +140,6 @@ void Plane::Serialize(const char * path) const
 	}
 
 	fout.write((char *)&year, sizeof(year));
-	fout.write((char *)&maxPassengersCount, sizeof(maxPassengersCount));
-	fout.write((char *)&passengersCount, sizeof(passengersCount));
 
 	int modelLength = model.length() + 1;
 	const char* str = model.c_str() + '\0';
@@ -205,8 +167,6 @@ void Plane::DeSerialize(const char * path)
 	int strLen;
 
 	fin.read((char *)&this->year, sizeof(this->year));
-	fin.read((char *)&this->maxPassengersCount, sizeof(this->maxPassengersCount));
-	fin.read((char *)&this->passengersCount, sizeof(this->passengersCount));
 	fin.read((char *)&strLen, sizeof(int));
 
 	char* str = new char[strLen];
@@ -225,36 +185,12 @@ void Plane::DeSerialize(const char * path)
 	fin.close();
 }
 
-bool Plane::Fly() const
-{
-	if (!canFly)
-		return false;
-
-	std::uniform_int_distribution<> accidentChance(0, 200000);
-	std::uniform_int_distribution<> surviveChance(0, 15);
-	std::uniform_int_distribution<> surviveCount(1, 25);
-
-	if (accidentChance(random) == 0)
-	{
-		int count = surviveChance(random) == 0 ? surviveCount(random) : 0;
-		planeStatistic->fixAccident(model, count, flyCount);
-		canFly = false;
-		return false;
-	}
-	++flyCount;
-	return true;
-}
 
 int Plane::Compare(const void * a, const void * b)
 {
 	if (*((Plane *)a) > *((Plane *)b))  return -1;
 	if (*((Plane *)a) == *((Plane *)b)) return 0;
 	if (*((Plane *)a) < *((Plane *)b))  return 1;
-}
-
-void Plane::ShowFullStatistic()
-{
-	planeStatistic->showFull();
 }
 
 bool Plane::operator>(Plane & val)
@@ -283,5 +219,5 @@ bool Plane::operator>=(Plane & val)
 }
 
 
-PlaneStatistic* Plane::planeStatistic = new PlaneStatistic();
+
 std::mt19937 Plane::random(time(0));
